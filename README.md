@@ -1,10 +1,15 @@
 ## LED Bus JS
 ### Pluggable LED display logic with scroll support
 
-![evil](demo.gif)
-
+<img src="https://github.com/deviant-syndrome/led-bus/blob/master/demo.gif" height="90">
 Encodes a string of text into series of on/off switch segment commands, with an optional scrolling ability.
 This implementation is agnostic of specific visualisation method. So, you can use SVG (as in the example attached), canvas or plain HTML.
+
+### Usage
+
+`npm install https://github.com/deviant-syndrome/led-bus`
+
+This [example](https://github.com/deviant-syndrome/led-bus/blob/master/example.html) HTML page shows how you can actually use this library to visualise LED's with ASCII characters. 
 
 ### Development
 
