@@ -1,5 +1,6 @@
 /**
- * Slices a fixed-size moving window through the text string, cycling around it
+ * Slices a fixed-size moving window through the text string, cycling around it.
+ * Ath the point of cycle restart, the end of string is separate by space character from it's beginning.
  *
  * @param {number} start - window's left boundary (inclusive)
  * @param {number} end - window's right boundary (inclusive)
@@ -7,7 +8,7 @@
  */
 export function offsetTextWrap(start, end, text) {
     if (end > text.length - 1) {
-        return text.substr(start, text.length - start) + text.substr(0, end - text.length)
+        return text.substr(start, text.length - start) + " " +text.substr(0, end - text.length)
     } else {
         return text.substr(start, end)
     }

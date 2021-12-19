@@ -73,7 +73,7 @@ export class LEDEncoder {
         setTimeout(() => {
             this.sendText(offsetTextWrap(this.offset, this.offset + this.numDisplays, textString));
             this.offset++
-            if (this.offset === textString.length) {
+            if (this.offset === (textString.length + 1)) {
                 this.offset = 0
             }
             this.sendScrollingText(textString, timeout)
