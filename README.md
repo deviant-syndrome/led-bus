@@ -9,6 +9,8 @@ This implementation is agnostic of specific visualisation method. So, you can us
 
 `npm install https://github.com/deviant-syndrome/led-bus`
 
+(official NPM package coming soon)
+
 This [example](https://github.com/deviant-syndrome/led-bus/blob/master/example.html) HTML page shows how you can actually use this library to visualise LED's with ASCII characters. 
 
 ### Development
