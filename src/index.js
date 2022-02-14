@@ -55,7 +55,6 @@ export class LEDEncoder {
      * @param {string} text - Text to encode
      */
     sendText(text) {
-        if (this.timeoutCallback) clearTimeout(this.timeoutCallback);
         for (let chNum = 0; chNum < text.substr(0, this.numDisplays).length; chNum++) {
             let count = 0
             let binaryString = hex2bin(fourteenSegmentASCII[text.charCodeAt(chNum) - ASCII_OFFSET], NUM_SEG_W_DP)
@@ -74,14 +73,20 @@ export class LEDEncoder {
      */
     sendScrollingText(textString, scrollSpeed) {
         let timeout = scrollSpeed || 1000;
-        this.timeoutCallback = setTimeout(() => {
+        let intervalFunc = () => {
             this.sendText(offsetTextWrap(this.offset, this.offset + this.numDisplays, textString));
             this.offset++
             if (this.offset === (textString.length + 1)) {
                 this.offset = 0
             }
-            this.sendScrollingText(textString, timeout)
+        }
+        this.timeoutCallback = setInterval(() => {
+            intervalFunc()
         }, timeout)
+    }
+
+    stopScrolling() {
+        if (this.timeoutCallback) clearInterval(this.timeoutCallback)
     }
 
     /**
