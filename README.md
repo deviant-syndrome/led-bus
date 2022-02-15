@@ -39,4 +39,5 @@ The SVG representation of 14-segment LED display used is this project belongs to
 
 * Decimal point support in the example
 * Ability to add custom characters
+* Blinking of certain characters in a string
 * Tests
