@@ -66,6 +66,20 @@ export class LEDEncoder {
     }
 
     /**
+     * Clear screen
+     */
+    clear() {
+        this.stopScrolling();
+         for (let chNum = 0; chNum < this.numDisplays; chNum++) {
+             let count = 0
+             for (let i = 0; i < NUM_SEG_W_DP; i++) {
+                 this.dpSupportCheckingHandler(chNum, segments[NUM_SEGS - count], false)
+                  count++
+             }
+         }
+    }
+
+    /**
      * Encodes text fragment into sequence of segment LED commands, refreshed every
      *
      * @param {string} textString - Text to encode
